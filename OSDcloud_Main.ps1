@@ -1,6 +1,6 @@
 Import-Module OSD -Force
 
-Write-Host  -ForegroundColor Yellow "Starting ALN's Custom OSDCloud-Menu ..."
+Write-Host  -ForegroundColor Yellow "Starting Manuel's Custom OSDCloud-Menu ..."
 Write-Host 
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
 Write-Host "1: Zero-Touch Win11 23H2 | German | Professional"-ForegroundColor Yellow
