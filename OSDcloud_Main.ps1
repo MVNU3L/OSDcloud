@@ -21,13 +21,30 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 switch ($input)
 {
     '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail } 
-    '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage en-en -OSLicense Retail }  
+    '2' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage en-en -OSLicense Retail }  
     #'7' { Start-OSDCloudGUI } 
     #'8' { Start-OSDCloud	} 
     '9' { Continue		}
 }
 
+#region Windows
+if ($WindowsPhase -eq 'Windows') {
+#============================================
+#   Test PowerShell Execution Policy
+#============================================
+Write-Host -ForegroundColor DarkGray "$((Get-Date).ToString('yyyy-MM-dd-HHmmss')) Test PowerShell Execution Policy"
+if ((Get-ExecutionPolicy) -ne 'RemoteSigned') {
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -force
+}
 
+#Execute Custom Script
+$Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
+Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
+$null = Stop-Transcript
+
+}
+
+#endregion
 # #============================================
 # #   Test PowerShell Execution Policy
 # #============================================
@@ -39,6 +56,8 @@ switch ($input)
 # #Execute Custom Script
 # $Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
 # Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
+
+
 
 # Restart from WinPE
 Write-Host  "Restarting in 10 seconds!" -ForegroundColor Cyan
