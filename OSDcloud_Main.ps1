@@ -1,4 +1,3 @@
-Install-Module OSD -Force
 Import-Module OSD -Force
 
 Write-Host  -ForegroundColor Yellow "Starting ALN's Custom OSDCloud-Menu ..."
