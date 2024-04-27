@@ -4,9 +4,7 @@ Write-Host  -ForegroundColor Yellow "Starting ALN's Custom OSDCloud-Menu ..."
 Write-Host 
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
 Write-Host "1: Zero-Touch Win11 23H2 | German | Professional"-ForegroundColor Yellow
-Write-Host "2: Zero-Touch Win10 20H2 | German | Professional" -ForegroundColor Yellow
-Write-Host "3: Zero-Touch Win10 21H1 | English | Enterprise"-ForegroundColor Yellow
-Write-Host "4: Zero-Touch Win10 20H2 | English | Enterprise" -ForegroundColor Yellow
+Write-Host "2: Zero-Touch Win11 23H2 | English | Professional" -ForegroundColor Yellow
 Write-Host "=======================================================" -ForegroundColor Yellow
 Write-Host "7: StartOSDCloudGUI" -ForegroundColor Yellow
 Write-Host "8: I'll select it myself" -ForegroundColor Yellow
@@ -23,12 +21,9 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 switch ($input)
 {
     '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 22H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail } 
-    '2' { Start-OSDCloud -OSLanguage de-de -OSBuild 20H2 -OSEdition Pro }
-    '3' { Start-OSDCloud -OSLanguage en-us -OSBuild 21H1 -OSEdition Enterprise -ZTI }
-    '4' { Start-OSDCloud -OSLanguage en-us -OSBuild 20H2 -OSEdition Enterprise -ZTI } 
-    
-    '7' { Start-OSDCloudGUI } 
-    '8' { Start-OSDCloud	} 
+    '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 22H2 -OSEdition Pro -OSLanguage en-en -OSLicense Retail }  
+    #'7' { Start-OSDCloudGUI } 
+    #'8' { Start-OSDCloud	} 
     '9' { Continue		}
 }
 
