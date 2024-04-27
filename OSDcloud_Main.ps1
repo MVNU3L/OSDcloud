@@ -12,6 +12,16 @@ else {
     elseif ($ImageState -eq 'IMAGE_STATE_SPECIALIZE_RESEAL_TO_AUDIT') { $WindowsPhase = 'AuditMode' }
     else { $WindowsPhase = 'Windows' }
 }
+
+Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
+if ($WindowsPhase -eq 'WinPE') {
+    #Initialize WinPE Phase
+    if ((Get-MyComputerModel) -match 'Virtual') {
+        Write-Host  -ForegroundColor Green "Setze Bildschirmauflösung auf 1600x"
+        Set-DisRes 1600
+    }  
+}
+
 Write-Host -ForegroundColor DarkGray "based on start.osdcloud.com $ScriptVersion $WindowsPhase"
 Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
 #endregion
@@ -38,15 +48,6 @@ switch ($input)
     #'8' { Start-OSDCloud	} 
     '9' { Continue		}
 }
-
-Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
-if ($WindowsPhase -eq 'WinPE') {
-    #Initialize WinPE Phase
-    if ((Get-MyComputerModel) -match 'Virtual') {
-        Write-Host  -ForegroundColor Green "Setze Bildschirmauflösung auf 1600x"
-        Set-DisRes 1600
-    }  
-}  
 
 #region Windows
 if ($WindowsPhase -eq 'Windows') {
