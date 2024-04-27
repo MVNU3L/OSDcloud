@@ -21,7 +21,7 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 switch ($input)
 {
     '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail } 
-    '2' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage en-en -OSLicense Retail }  
+    '2' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage en-us -OSLicense Retail }  
     #'7' { Start-OSDCloudGUI } 
     #'8' { Start-OSDCloud	} 
     '9' { Continue		}
