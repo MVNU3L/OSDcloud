@@ -52,7 +52,7 @@ switch ($input)
 }
 
 #region Windows
-if ($WindowsPhase -eq 'Windows') {
+if ($WindowsPhase -eq 'WinPE') {
 #Execute Custom Script
 $Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
 Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
