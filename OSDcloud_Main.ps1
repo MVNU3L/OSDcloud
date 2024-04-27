@@ -1,53 +1,40 @@
-5[CmdletBinding()]
-param()
+Install-Module OSD -Force
+Import-Module OSD -Force
 
-$Transcript = "$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-OSDCloud.log"
-$null = Start-Transcript -Path (Join-Path "$env:SystemRoot\Temp" $Transcript) -ErrorAction Ignore
+Write-Host  -ForegroundColor Yellow "Starting ALN's Custom OSDCloud-Menu ..."
+Write-Host 
+Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
+Write-Host "1: Zero-Touch Win10 21H1 | German | Professional"-ForegroundColor Yellow
+Write-Host "2: Zero-Touch Win10 20H2 | German | Professional" -ForegroundColor Yellow
+Write-Host "3: Zero-Touch Win10 21H1 | English | Enterprise"-ForegroundColor Yellow
+Write-Host "4: Zero-Touch Win10 20H2 | English | Enterprise" -ForegroundColor Yellow
+Write-Host "=======================================================" -ForegroundColor Yellow
+Write-Host "7: StartOSDCloudGUI" -ForegroundColor Yellow
+Write-Host "8: I'll select it myself" -ForegroundColor Yellow
+Write-Host "9: Exit`n" -ForegroundColor Yellow
+$input = Read-Host "Please make a selection"
 
-#Region Variables
-$appx2remove = @('OneNote', 'BingWeather', 'CommunicationsApps', 'OfficeHub', 'People', 'Skype', 'Solitaire', 'Xbox', 'ZuneMusic', 'ZuneVideo', 'FeedbackHub', 'TCUI')
-#endregion
-
-#region Initialize
-$ScriptVersion = '15112022'
-if ($env:SystemDrive -eq 'X:') { $WindowsPhase = 'WinPE' }
-else {
-    $ImageState = (Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State' -ErrorAction Ignore).ImageState
-    if ($env:UserName -eq 'defaultuser0') { $WindowsPhase = 'OOBE' }
-    elseif ($ImageState -eq 'IMAGE_STATE_SPECIALIZE_RESEAL_TO_OOBE') { $WindowsPhase = 'Specialize' }
-    elseif ($ImageState -eq 'IMAGE_STATE_SPECIALIZE_RESEAL_TO_AUDIT') { $WindowsPhase = 'AuditMode' }
-    else { $WindowsPhase = 'Windows' }
+Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
+# Change Display Resolution for Virtual Machine
+if ((Get-MyComputerModel) -match 'Virtual') {
+    Write-Host  -ForegroundColor Cyan "Setting Display Resolution to 1600x"
+    Set-DisRes 1600
 }
-Write-Host -ForegroundColor DarkGray "based on start.osdcloud.com $ScriptVersion $WindowsPhase"
-Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
-#endregion
 
-#region WinPE
-if ($WindowsPhase -eq 'WinPE') {
-    #Initialize WinPE Phase
-    if ((Get-MyComputerModel) -match 'Virtual') {
-        Write-Host  -ForegroundColor Green "Setze Bildschirmauflösung auf 1600x"
-        Set-DisRes 1600
-    }    
-    Import-Module OSD
-
-    #Start OSDcloud
-    StartOSDCloud "-OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail"
-
-    #================================================
-    #  [PostOS] SetupComplete CMD Command Line
-    #================================================
-    Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
-    $SetupCompleteCMD = @'
-    RD C:\OSDCloud\OS /S /Q
-    RD C:\Drivers /S /Q
-    RD C:\Temp /S /Q
-'@
-    $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
-
-    #Task sequence complete
-    Write-Host -ForegroundColor Green "Alles erledigt. Bitte neustarten"
-    Pause
-    Break
+switch ($input)
+{
+    '1' { Start-OSDCloud -OSLanguage de-de -OSBuild 21H1 -OSEdition Pro } 
+    '2' { Start-OSDCloud -OSLanguage de-de -OSBuild 20H2 -OSEdition Pro }
+    '3' { Start-OSDCloud -OSLanguage en-us -OSBuild 21H1 -OSEdition Enterprise -ZTI }
+    '4' { Start-OSDCloud -OSLanguage en-us -OSBuild 20H2 -OSEdition Enterprise -ZTI } 
     
-    $null = Stop-Transcript
+    '7' { Start-OSDCloudGUI } 
+    '8' { Start-OSDCloud	} 
+    '9' { Continue		}
+}
+
+# Restart from WinPE
+Write-Host  "Restarting in 10 seconds!" -ForegroundColor Cyan
+Start-Sleep -Seconds 10
+
+wpeutil reboot
