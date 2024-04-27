@@ -28,17 +28,17 @@ switch ($input)
 }
 
 
-#============================================
-#   Test PowerShell Execution Policy
-#============================================
-Write-Host -ForegroundColor DarkGray "$((Get-Date).ToString('yyyy-MM-dd-HHmmss')) Test PowerShell Execution Policy"
-if ((Get-ExecutionPolicy) -ne 'RemoteSigned') {
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -force
-}
+# #============================================
+# #   Test PowerShell Execution Policy
+# #============================================
+# Write-Host -ForegroundColor DarkGray "$((Get-Date).ToString('yyyy-MM-dd-HHmmss')) Test PowerShell Execution Policy"
+# if ((Get-ExecutionPolicy) -ne 'RemoteSigned') {
+# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -force
+# }
 
-#Execute Custom Script
-$Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
-Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
+# #Execute Custom Script
+# $Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
+# Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
 
 # Restart from WinPE
 Write-Host  "Restarting in 10 seconds!" -ForegroundColor Cyan
