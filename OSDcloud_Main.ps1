@@ -35,10 +35,8 @@ Write-Host "===================== Main Menu =======================" -Foreground
 Write-Host "1: Zero-Touch Win11 23H2 | German | Professional"-ForegroundColor Yellow
 Write-Host "2: Zero-Touch Win11 23H2 | English | Professional" -ForegroundColor Yellow
 Write-Host "3: Zero-Touch Win10 22H2 | German | Professional" -ForegroundColor Yellow
+Write-Host "4: Zero-Touch Win10 22H2 | English | Professional" -ForegroundColor Yellow
 Write-Host "=======================================================" -ForegroundColor Yellow
-Write-Host "7: StartOSDCloudGUI" -ForegroundColor Yellow
-Write-Host "8: I'll select it myself" -ForegroundColor Yellow
-Write-Host "9: Exit`n" -ForegroundColor Yellow
 $input = Read-Host "Please make a selection"
 
 switch ($input)
@@ -46,18 +44,16 @@ switch ($input)
     '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail } 
     '2' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage en-us -OSLicense Retail }
     '3' { Start-OSDCloud -OSVersion 'Windows 10' -OSBuild 22H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail }
-    #'7' { Start-OSDCloudGUI } 
-    #'8' { Start-OSDCloud	} 
-    '9' { Continue		}
+    '4' { Start-OSDCloud -OSVersion 'Windows 10' -OSBuild 22H2 -OSEdition Pro -OSLanguage en-us -OSLicense Retail }
 }
 
-#region Windows
-if ($WindowsPhase -eq 'WinPE') {
-#Execute Custom Script
-$Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
-Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
-$null = Stop-Transcript
-}
+# #region Windows
+# if ($WindowsPhase -eq 'WinPE') {
+# #Execute Custom Script
+# $Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
+# Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
+# $null = Stop-Transcript
+# }
 
 # Restart from WinPE
 Write-Host  "Restarting in 10 seconds!" -ForegroundColor Cyan
