@@ -59,7 +59,7 @@ RD C:\Temp /S /Q
 $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
 #Task sequence complete
-Write-Host -ForegroundColor Green "Alles erledigt :-) // Bitte jetzt den USB-Stick abziehen und den PC neustarten (alle Fenster schließen)."
+Write-Host -ForegroundColor Green "Alles erledigt"
 Pause
 Break
     
