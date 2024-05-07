@@ -2,6 +2,10 @@
 $Transcript = "$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-OSDCloud.log"
 $null = Start-Transcript -Path (Join-Path "$env:SystemRoot\Temp" $Transcript) -ErrorAction Ignore
 
+#Region Variables
+$appx2remove = @('OneNote', 'BingWeather', 'CommunicationsApps', 'OfficeHub', 'People', 'Skype', 'Solitaire', 'Xbox', 'ZuneMusic', 'ZuneVideo', 'FeedbackHub', 'TCUI')
+#endregion
+
 #region Initialize
 $ScriptVersion = '27042024'
 if ($env:SystemDrive -eq 'X:') { $WindowsPhase = 'WinPE' }
