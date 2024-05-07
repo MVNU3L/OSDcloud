@@ -47,23 +47,23 @@ switch ($input)
     '4' { Start-OSDCloud -OSVersion 'Windows 10' -OSBuild 22H2 -OSEdition Pro -OSLanguage en-us -OSLicense Retail }
 }
 
-    #================================================
-    #  [PostOS] SetupComplete CMD Command Line
-    #================================================
-    Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
-    $SetupCompleteCMD = @'
-    RD C:\OSDCloud\OS /S /Q
-    RD C:\Drivers /S /Q
-    RD C:\Temp /S /Q
-    '@
-    $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
+#================================================
+#  [PostOS] SetupComplete CMD Command Line
+#================================================
+Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
+$SetupCompleteCMD = @'
+RD C:\OSDCloud\OS /S /Q
+RD C:\Drivers /S /Q
+RD C:\Temp /S /Q
+'@
+$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
-    #Task sequence complete
-    Write-Host -ForegroundColor Green "Alles erledigt :-) // Bitte jetzt den USB-Stick abziehen und den PC neustarten (alle Fenster schließen)."
-    Pause
-    Break
+#Task sequence complete
+Write-Host -ForegroundColor Green "Alles erledigt :-) // Bitte jetzt den USB-Stick abziehen und den PC neustarten (alle Fenster schließen)."
+Pause
+Break
     
-    $null = Stop-Transcript
+#$null = Stop-Transcript
 
 # #region Windows
 # if ($WindowsPhase -eq 'WinPE') {
@@ -78,3 +78,5 @@ Write-Host  "Restarting in 10 seconds!" -ForegroundColor Cyan
 Start-Sleep -Seconds 10
 
 wpeutil reboot
+
+$null = Stop-Transcript
