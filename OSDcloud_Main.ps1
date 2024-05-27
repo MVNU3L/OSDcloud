@@ -64,8 +64,6 @@ $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.c
 
 #Task sequence complete
 Write-Host -ForegroundColor Green "Alles erledigt"
-Pause
-Break
     
 #$null = Stop-Transcript
 
