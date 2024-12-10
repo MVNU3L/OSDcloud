@@ -33,6 +33,21 @@ Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
 #Import OSD Module
 Import-Module OSD -Force
 
+#Set OSDCloud Vars
+$Global:MyOSDCloud = [ordered]@{
+    #Restart = [bool]$False
+    #RecoveryPartition = [bool]$true
+    OEMActivation = [bool]$True
+    WindowsUpdate = [bool]$true
+    WindowsUpdateDrivers = [bool]$true
+    WindowsDefenderUpdate = [bool]$true
+    SetTimeZone = [bool]$true
+    ClearDiskConfirm = [bool]$true
+    #ShutdownSetupComplete = [bool]$false
+    #SyncMSUpCatDriverUSB = [bool]$true
+    #CheckSHA1 = [bool]$true
+}
+
 Write-Host  -ForegroundColor Yellow "Starting Manuel's Custom OSDCloud-Menu ..."
 Write-Host 
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
