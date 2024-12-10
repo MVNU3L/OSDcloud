@@ -58,7 +58,7 @@ Write-Host "4: Zero-Touch Win10 22H2 | English | Professional" -ForegroundColor 
 Write-Host "5: Zero-Touch Win11 24H2 | English | Professional" -ForegroundColor Yellow
 Write-Host "6: Zero-Touch Win11 24H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "=======================================================" -ForegroundColor Yellow
-$input = Read-Host "Please make a selection"
+$input = Read-Host "Please choose a number"
 
 switch ($input)
 {
@@ -99,5 +99,22 @@ Write-Host  "Restarting in 10 seconds!" -ForegroundColor Cyan
 Start-Sleep -Seconds 10
 
 wpeutil reboot
+
+if ($WindowsPhase -eq 'Windows') {
+#============================================
+        #	Suspend BitLocker
+        #   https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bcd-settings-and-bitlocker
+        #============================================
+        $BitLockerVolumes = Get-BitLockerVolume | Where-Object { ($_.ProtectionStatus -eq 'On') -and ($_.VolumeType -eq 'OperatingSystem') } -ErrorAction Ignore
+        if ($BitLockerVolumes) {
+            $BitLockerVolumes | Suspend-BitLocker -RebootCount 1 -ErrorAction Ignore
+    
+            if (Get-BitLockerVolume -MountPoint $BitLockerVolumes | Where-Object ProtectionStatus -eq "On") {
+                Write-Warning "$((Get-Date).ToString('yyyy-MM-dd-HHmmss')) Unable to suspend BitLocker for next boot"
+            }
+            else {
+                Write-Host -ForegroundColor DarkGray "$((Get-Date).ToString('yyyy-MM-dd-HHmmss')) BitLocker is suspended for the next boot"
+            }
+        }
 
 $null = Stop-Transcript
