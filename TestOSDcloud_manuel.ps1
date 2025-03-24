@@ -1,9 +1,20 @@
-#region WinPE
-if ($WindowsPhase -eq 'WinPE') {
-
 #Start Transcript
 $Transcript = "$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-OSDCloud.log"
 $null = Start-Transcript -Path (Join-Path "$env:SystemRoot\Temp" $Transcript) -ErrorAction Ignore
+
+#region WinPE
+#if ($WindowsPhase -eq 'WinPE') {
+
+#region Initialize
+$ScriptVersion = '27042024'
+if ($env:SystemDrive -eq 'X:') { $WindowsPhase = 'WinPE' }
+else {
+    $ImageState = (Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State' -ErrorAction Ignore).ImageState
+    if ($env:UserName -eq 'defaultuser0') { $WindowsPhase = 'OOBE' }
+    elseif ($ImageState -eq 'IMAGE_STATE_SPECIALIZE_RESEAL_TO_OOBE') { $WindowsPhase = 'Specialize' }
+    elseif ($ImageState -eq 'IMAGE_STATE_SPECIALIZE_RESEAL_TO_AUDIT') { $WindowsPhase = 'AuditMode' }
+    else { $WindowsPhase = 'Windows' }
+}
 
 #Set OSDCloud Vars
 $Global:MyOSDCloud = [ordered]@{
@@ -103,8 +114,6 @@ If (!(Test-Path "C:\ProgramData\OSDeploy")) {
     New-Item "C:\ProgramData\OSDeploy" -ItemType Directory -force | Out-Null
 }
 $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json" -Encoding ascii -force
-
-}
 
 #================================================
 #  [PostOS] OOBEDeploy CMD Command Line - 1.cmd
