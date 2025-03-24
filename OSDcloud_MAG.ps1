@@ -57,6 +57,7 @@ $SetupCompleteCMD = @'
 RD C:\OSDCloud\OS /S /Q
 RD C:\Drivers /S /Q
 RD C:\Temp /S /Q
+Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://raw.githubusercontent.com/andrew-s-taylor/public/main/De-Bloat/RemoveBloat.ps1
 '@
 $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
