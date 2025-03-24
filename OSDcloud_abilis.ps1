@@ -74,8 +74,8 @@ switch ($input)
 #  [PostOS] AutopilotOOBE Configuration
 #================================================
 
-$serial = (Get-CimInstance -ClassName Win32_BIOS).SerialNumber
-$serialWithPrefix = "MAG-$serial"
+#$serial = (Get-CimInstance -ClassName Win32_BIOS).SerialNumber
+#$serialWithPrefix = "MAG-$serial"
 
 Write-Host -ForegroundColor Green "Creating C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json"
 $AutopilotOOBEJson = @'
@@ -90,8 +90,6 @@ $AutopilotOOBEJson = @'
                             "MAG_GroupTag3"
                         ],
 
-    "AssignedComputerName": "$serialWithPrefix"
-                        
     "Hidden":  [
                    "AddToGroup",
                    "AssignedUser",
