@@ -120,8 +120,10 @@ $OOBECMD | Out-File -FilePath 'C:\Windows\System32\1.cmd' -Encoding ascii -force
 
 #Task sequence complete
 Write-Host -ForegroundColor Green "All done :-)"
-Pause
-Break
+
+# Restart from WinPE
+Write-Host  "Computer will restart in 10 seconds" -ForegroundColor Cyan
+Start-Sleep -Seconds 10
     
 $null = Stop-Transcript
 
