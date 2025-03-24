@@ -87,11 +87,11 @@ Write-Host -ForegroundColor Green "Everything is done"
 #$null = Stop-Transcript
 
 #region Windows
-if ($WindowsPhase -eq 'Windows') {
+#if ($WindowsPhase -eq 'Windows') {
 #Execute Custom Script
-$Uri = 'https://raw.githubusercontent.com/andrew-s-taylor/public/main/De-Bloat/RemoveBloat.ps1'
-Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
-}
+#$Uri = 'https://raw.githubusercontent.com/andrew-s-taylor/public/main/De-Bloat/RemoveBloat.ps1'
+#Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
+#}
 
 # Restart from WinPE
 Write-Host  "Computer will restart in 10 seconds" -ForegroundColor Cyan
