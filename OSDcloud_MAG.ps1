@@ -68,7 +68,7 @@ Write-Host -ForegroundColor Green "Everything is done"
 #region Windows
 if ($WindowsPhase -eq 'Windows') {
 #Execute Custom Script
-$Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
+$Uri = 'https://raw.githubusercontent.com/andrew-s-taylor/public/main/De-Bloat/RemoveBloat.ps1'
 Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
 }
 
