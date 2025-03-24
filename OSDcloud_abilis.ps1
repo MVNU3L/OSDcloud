@@ -130,6 +130,8 @@ Write-Host -ForegroundColor Green "All done :-)"
 # Restart from WinPE
 Write-Host  "Computer will restart in 10 seconds" -ForegroundColor Cyan
 Start-Sleep -Seconds 10
+
+wpeutil reboot
     
 $null = Stop-Transcript
 
