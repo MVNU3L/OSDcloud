@@ -50,15 +50,16 @@ switch ($input)
 }
 
 #================================================
-    #  [PostOS] AutopilotOOBE CMD Command Line
-    #================================================
-    Write-Host -ForegroundColor Cyan "Create C:\Windows\System32\OOBE.cmd"
-    $OOBE = @'
+#  [PostOS] AutopilotOOBE CMD Command Line
+#================================================
+Write-Host -ForegroundColor Cyan "Create C:\Windows\System32\OOBE.cmd"
+$OOBE = @'
 PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -Force
 Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
 Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://raw.githubusercontent.com/andrew-s-taylor/public/main/De-Bloat/RemoveBloat.ps1
 '@
-    $OOBE | Out-File -FilePath 'C:\Windows\System32\OOBE.cmd' -Encoding ascii -Force
+
+$OOBE | Out-File -FilePath 'C:\Windows\System32\OOBE.cmd' -Encoding ascii -Force
 
 #================================================
 #  [PostOS] SetupComplete CMD Command Line
