@@ -35,17 +35,6 @@ $Global:MyOSDCloud = [ordered]@{
 }
 #endregion
 
-#region Initialize
-$ScriptVersion = '27042024'
-if ($env:SystemDrive -eq 'X:') { $WindowsPhase = 'WinPE' }
-else {
-    $ImageState = (Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State' -ErrorAction Ignore).ImageState
-    if ($env:UserName -eq 'defaultuser0') { $WindowsPhase = 'OOBE' }
-    elseif ($ImageState -eq 'IMAGE_STATE_SPECIALIZE_RESEAL_TO_OOBE') { $WindowsPhase = 'Specialize' }
-    elseif ($ImageState -eq 'IMAGE_STATE_SPECIALIZE_RESEAL_TO_AUDIT') { $WindowsPhase = 'AuditMode' }
-    else { $WindowsPhase = 'Windows' }
-}
-
 Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
 if ($WindowsPhase -eq 'WinPE') {
     #Initialize WinPE Phase
