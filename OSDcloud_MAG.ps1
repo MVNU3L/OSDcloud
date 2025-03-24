@@ -65,13 +65,12 @@ Write-Host -ForegroundColor Green "Everything is done"
     
 #$null = Stop-Transcript
 
-# #region Windows
-# if ($WindowsPhase -eq 'WinPE') {
-# #Execute Custom Script
-# $Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
-# Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
-# $null = Stop-Transcript
-# }
+#region Windows
+if ($WindowsPhase -eq 'Windows') {
+#Execute Custom Script
+$Uri = 'https://raw.githubusercontent.com/MVNU3L/OSDcloud/main/HyperV.ps1'
+Invoke-Expression -Command (Invoke-RestMethod -Uri $Uri)
+}
 
 # Restart from WinPE
 Write-Host  "Computer will restart in 10 seconds" -ForegroundColor Cyan
