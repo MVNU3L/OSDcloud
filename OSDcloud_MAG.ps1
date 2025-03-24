@@ -37,22 +37,16 @@ Write-Host  -ForegroundColor Yellow "Starting Manuel's Custom OSDCloud-Menu ..."
 Write-Host 
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
 Write-Host "1: Zero-Touch Win11 23H2 | German | Professional"-ForegroundColor Yellow
-Write-Host "2: Zero-Touch Win11 23H2 | English | Professional" -ForegroundColor Yellow
-Write-Host "3: Zero-Touch Win10 22H2 | German | Professional" -ForegroundColor Yellow
-Write-Host "4: Zero-Touch Win10 22H2 | English | Professional" -ForegroundColor Yellow
-Write-Host "5: Zero-Touch Win11 24H2 | English | Professional" -ForegroundColor Yellow
-Write-Host "6: Zero-Touch Win11 24H2 | German | Professional" -ForegroundColor Yellow
+Write-Host "2: Zero-Touch Win10 22H2 | German | Professional" -ForegroundColor Yellow
+Write-Host "3: Zero-Touch Win11 24H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "=======================================================" -ForegroundColor Yellow
 $input = Read-Host "Please choose a number"
 
 switch ($input)
 {
     '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail } 
-    '2' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage en-us -OSLicense Retail }
-    '3' { Start-OSDCloud -OSVersion 'Windows 10' -OSBuild 22H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail }
-    '4' { Start-OSDCloud -OSVersion 'Windows 10' -OSBuild 22H2 -OSEdition Pro -OSLanguage en-us -OSLicense Retail }
-    '5' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 24H2 -OSEdition Pro -OSLanguage en-us -OSLicense Retail }
-    '6' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 24H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail }
+    '2' { Start-OSDCloud -OSVersion 'Windows 10' -OSBuild 22H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail }
+    '3' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 24H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail }
 }
 
 #================================================
