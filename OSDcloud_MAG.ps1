@@ -21,7 +21,7 @@ Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
 if ($WindowsPhase -eq 'WinPE') {
     #Initialize WinPE Phase
     if ((Get-MyComputerModel) -match 'Virtual') {
-        Write-Host  -ForegroundColor Green "Setze Bildschirmauflösung auf 1600x"
+        Write-Host  -ForegroundColor Green "Setze Bildschirmaufloesung auf 1600x"
         Set-DisRes 1600
     }  
 }
