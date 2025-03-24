@@ -33,14 +33,14 @@ Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
 #Import OSD Module
 Import-Module OSD -Force
 
-Write-Host  -ForegroundColor Yellow "MAG OSDcloud Setup..."
+Write-Host  -ForegroundColor Yellow "Starting MAG Custom OSDCloud-Menu..."
 Write-Host 
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
 Write-Host "1: Zero-Touch Win11 23H2 | German | Professional"-ForegroundColor Yellow
 Write-Host "2: Zero-Touch Win10 22H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "3: Zero-Touch Win11 24H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "=======================================================" -ForegroundColor Yellow
-$input = Read-Host "Bitte eine Nummer wählen"
+$input = Read-Host "Please select a number and press Enter"
 
 switch ($input)
 {
@@ -61,7 +61,7 @@ RD C:\Temp /S /Q
 $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
 #Task sequence complete
-Write-Host -ForegroundColor Green "Alles erledigt"
+Write-Host -ForegroundColor Green "Everything is done"
     
 #$null = Stop-Transcript
 
@@ -74,7 +74,7 @@ Write-Host -ForegroundColor Green "Alles erledigt"
 # }
 
 # Restart from WinPE
-Write-Host  "Neustart wird in 10 sekunden ausgeführt!" -ForegroundColor Cyan
+Write-Host  "Computer will restart in 10 seconds" -ForegroundColor Cyan
 Start-Sleep -Seconds 10
 
 wpeutil reboot
