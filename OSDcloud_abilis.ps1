@@ -2,9 +2,6 @@
 $Transcript = "$((Get-Date).ToString('yyyy-MM-dd-HHmmss'))-OSDCloud.log"
 $null = Start-Transcript -Path (Join-Path "$env:SystemRoot\Temp" $Transcript) -ErrorAction Ignore
 
-#region WinPE
-#if ($WindowsPhase -eq 'WinPE') {
-
 #region Initialize
 $ScriptVersion = '27042024'
 if ($env:SystemDrive -eq 'X:') { $WindowsPhase = 'WinPE' }
@@ -85,9 +82,8 @@ $AutopilotOOBEJson = @'
                 },
     "GroupTag":  "abilis",
     "GroupTagOptions":  [
-                            "EP_Hybrid",
+                            "EP_Hybrid"
                         ],
-
     "Hidden":  [
                    "AddToGroup",
                    "AssignedUser",
@@ -98,7 +94,7 @@ $AutopilotOOBEJson = @'
     "Run":  "NetworkingWireless",
     "Docs":  "https://google.com/",
     "Title":  "abilis Autopilot Registrierung"
-}
+    }
 '@
 
 If (!(Test-Path "C:\ProgramData\OSDeploy")) {
