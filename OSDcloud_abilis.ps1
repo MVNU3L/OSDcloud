@@ -97,7 +97,7 @@ $AutopilotOOBEJson = @'
     "PostAction":  "Quit",
     "Run":  "NetworkingWireless",
     "Docs":  "https://google.com/",
-    "Title":  "MAG Autopilot Registrierung"
+    "Title":  "abilis Autopilot Registrierung"
 }
 '@
 
