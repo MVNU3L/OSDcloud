@@ -88,6 +88,7 @@ $AutopilotOOBEJson = @'
     "Hidden":  [
                    "AddToGroup",
                    "AssignedUser",
+                   "AssignedComputerName",
                    "PostAction",
                    "Assign"
                ],
