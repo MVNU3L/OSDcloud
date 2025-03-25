@@ -83,11 +83,9 @@ $AutopilotOOBEJson = @'
     "Assign":  {
                    "IsPresent":  true
                 },
-    "GroupTag":  "MAG_GroupTag",
+    "GroupTag":  "abilis",
     "GroupTagOptions":  [
-                            "MAG_GroupTag1",
-                            "MAG_GroupTag2",
-                            "MAG_GroupTag3"
+                            "EP_Hybrid",
                         ],
 
     "Hidden":  [
