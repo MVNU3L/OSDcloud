@@ -82,7 +82,8 @@ $AutopilotOOBEJson = @'
                 },
     "GroupTag":  "abilis",
     "GroupTagOptions":  [
-                            "EP_Hybrid"
+                            "EP_Hybrid",
+                            "EP_Hybrid_Certification"
                         ],
     "Hidden":  [
                    "AddToGroup",
