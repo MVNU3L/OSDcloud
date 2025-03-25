@@ -1,5 +1,5 @@
-﻿#region Windows
-if ($WindowsPhase -eq 'Windows') {
+#﻿#region Windows
+#if ($WindowsPhase -eq 'Windows') {
 
 #============================================
 #	Suspend BitLocker
@@ -17,4 +17,4 @@ $BitLockerVolumes | Suspend-BitLocker -RebootCount 1 -ErrorAction Ignore
             }
         }
 
-}
+#}
