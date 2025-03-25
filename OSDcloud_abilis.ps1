@@ -113,7 +113,6 @@ $OOBECMD = @'
     Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
     Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
     #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker
-    pause
     Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
     Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
     Start /Wait PowerShell -NoL -C Restart-Computer -force
