@@ -45,6 +45,9 @@ if ($WindowsPhase -eq 'WinPE') {
     }  
 }
 
+#write variables to console
+Write-Output $Global:MyOSDCloud
+
 Write-Host -ForegroundColor DarkGray "based on start.osdcloud.com $ScriptVersion $WindowsPhase"
 Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
 #endregion
