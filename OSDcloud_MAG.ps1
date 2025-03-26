@@ -17,6 +17,25 @@ else {
     else { $WindowsPhase = 'Windows' }
 }
 
+#Set OSDCloud Vars
+$Global:MyOSDCloud = [ordered]@{
+    MSCatalogFirmware     = [bool]$false
+    MSCatalogDiskDrivers  = [bool]$false
+    MSCatalogNetDrivers   = [bool]$false
+    MSCatalogScsiDrivers  = [bool]$false
+    Restart               = [bool]$False
+    RecoveryPartition     = [bool]$true
+    OEMActivation         = [bool]$True
+    WindowsUpdate         = [bool]$false
+    WindowsUpdateDrivers  = [bool]$false
+    WindowsDefenderUpdate = [bool]$true
+    SetTimeZone           = [bool]$true
+    ClearDiskConfirm      = [bool]$False
+    ShutdownSetupComplete = [bool]$false
+    SyncMSUpCatDriverUSB  = [bool]$false
+}
+#endregion
+
 Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
 if ($WindowsPhase -eq 'WinPE') {
     #Initialize WinPE Phase
