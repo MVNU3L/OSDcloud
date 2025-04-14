@@ -70,7 +70,7 @@ switch ($input)
 #================================================
 #  [PostOS] OOBE Configuration
 #================================================
-#Write-Host -ForegroundColor Green "C:\ProgramData\OSDeploy\OSDeploy.OOBEDeploy.json"
+Write-Host -ForegroundColor Green "C:\ProgramData\OSDeploy\OSDeploy.OOBEDeploy.json"
 $OOBEDeployJson = @'
 {
     "AddNetFX3":  {
