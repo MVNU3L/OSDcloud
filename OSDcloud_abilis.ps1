@@ -162,32 +162,36 @@ $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.Autopi
 #================================================
 #  [PostOS] SetupComplete CMD Command Line
 #================================================
-#Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
-#$SetupCompleteCMD = @'
-#RD C:\OSDCloud\OS /S /Q
-#RD C:\Drivers /S /Q
-#RD C:\Temp /S /Q
-#Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
-#PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
-#Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
-#'@
-#$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
+Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
+$SetupCompleteCMD = @'
+RD C:\OSDCloud\OS /S /Q
+RD C:\Drivers /S /Q
+RD C:\Temp /S /Q
+Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
+PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
+Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
+Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
+Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
+Start /Wait PowerShell -NoL -C Start-OOBEDeploy
+Start /Wait PowerShell -NoL -C Restart-Computer -force
+'@
+$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
 #================================================
 #  [PostOS] OOBEDeploy CMD Command Line - 1.cmd
 #================================================
-Write-Host -ForegroundColor Green "Creating C:\Windows\System32\1.cmd" #open with shift+f10 and type "1" and press ENTER
-$OOBECMD = @'
-    PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
-    Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
+#Write-Host -ForegroundColor Green "Creating C:\Windows\System32\1.cmd" #open with shift+f10 and type "1" and press ENTER
+#$OOBECMD = @'
+    #PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
+    #Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
     #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
     #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker
-    Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
-    Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
-    Start /Wait PowerShell -NoL -C Start-OOBEDeploy
-    Start /Wait PowerShell -NoL -C Restart-Computer -force
-'@
-$OOBECMD | Out-File -FilePath 'C:\Windows\System32\1.cmd' -Encoding ascii -force
+    #Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
+    #Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
+    #Start /Wait PowerShell -NoL -C Start-OOBEDeploy
+    #Start /Wait PowerShell -NoL -C Restart-Computer -force
+#'@
+#$OOBECMD | Out-File -FilePath 'C:\Windows\System32\1.cmd' -Encoding ascii -force
 
 #Task sequence complete
 Write-Host -ForegroundColor Green "All done :-)"
