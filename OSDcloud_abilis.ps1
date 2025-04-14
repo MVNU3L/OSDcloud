@@ -180,7 +180,7 @@ Write-Host -ForegroundColor Green "Creating C:\Windows\System32\1.cmd" #open wit
 $OOBECMD = @'
     PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
     Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
-    Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
+    #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
     #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker
     Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
     Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
