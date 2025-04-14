@@ -184,6 +184,7 @@ $OOBECMD = @'
     #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker
     Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
     Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
+    Start /Wait PowerShell -NoL -C Start-OOBEDeploy
     Start /Wait PowerShell -NoL -C Restart-Computer -force
 '@
 $OOBECMD | Out-File -FilePath 'C:\Windows\System32\1.cmd' -Encoding ascii -force
