@@ -160,6 +160,19 @@ If (!(Test-Path "C:\ProgramData\OSDeploy")) {
 $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json" -Encoding ascii -force
 
 #================================================
+#  [PostOS] SetupComplete CMD Command Line
+#================================================
+Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
+$SetupCompleteCMD = @'
+RD C:\OSDCloud\OS /S /Q
+RD C:\Drivers /S /Q
+RD C:\Temp /S /Q
+PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
+Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
+'@
+$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
+
+#================================================
 #  [PostOS] OOBEDeploy CMD Command Line - 1.cmd
 #================================================
 Write-Host -ForegroundColor Green "Creating C:\Windows\System32\1.cmd" #open with shift+f10 and type "1" and press ENTER
