@@ -167,6 +167,7 @@ $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.Autopi
 #RD C:\OSDCloud\OS /S /Q
 #RD C:\Drivers /S /Q
 #RD C:\Temp /S /Q
+#Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
 #PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
 #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
 #'@
