@@ -70,7 +70,7 @@ switch ($input)
 #================================================
 #  [PostOS] OOBE Configuration
 #================================================
-Write-Host -ForegroundColor Green "C:\ProgramData\OSDeploy\OSDeploy.OOBEDeploy.json"
+#Write-Host -ForegroundColor Green "C:\ProgramData\OSDeploy\OSDeploy.OOBEDeploy.json"
 $OOBEDeployJson = @'
 {
     "AddNetFX3":  {
@@ -162,15 +162,15 @@ $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.Autopi
 #================================================
 #  [PostOS] SetupComplete CMD Command Line
 #================================================
-Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
-$SetupCompleteCMD = @'
-RD C:\OSDCloud\OS /S /Q
-RD C:\Drivers /S /Q
-RD C:\Temp /S /Q
-PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
-Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
-'@
-$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
+#Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
+#$SetupCompleteCMD = @'
+#RD C:\OSDCloud\OS /S /Q
+#RD C:\Drivers /S /Q
+#RD C:\Temp /S /Q
+#PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
+#Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
+#'@
+#$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
 #================================================
 #  [PostOS] OOBEDeploy CMD Command Line - 1.cmd
