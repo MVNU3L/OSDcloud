@@ -127,7 +127,13 @@ $OOBEDeployJson = @'
                     "Microsoft.YourPhone",
                     "Microsoft.ZuneMusic",
                     "Microsoft.ZuneVideo"
-                   ]	  
+                   ],
+    "UpdateDrivers":  {
+                          "IsPresent":  true
+                      },
+    "UpdateWindows":  {
+                          "IsPresent":  true
+                      }
 }
 '@
 
@@ -198,7 +204,7 @@ $OOBECMD = @'
     RD C:\Drivers /S /Q
     RD C:\Temp /S /Q
     Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
-    Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker
+    #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker
     Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
     Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
     Start /Wait PowerShell -NoL -C Start-OOBEDeploy
