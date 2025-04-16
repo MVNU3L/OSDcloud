@@ -71,7 +71,7 @@ Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
 #Import OSD Module
 Import-Module OSD -Force
 
-Write-Host  -ForegroundColor Yellow "Starting MAG Custom OSDCloud-Menu..."
+Write-Host  -ForegroundColor Yellow "Starting abilis Custom OSDCloud-Menu..."
 Write-Host 
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
 Write-Host "1: Zero-Touch Win11 23H2 | German | Professional"-ForegroundColor Yellow
@@ -203,7 +203,7 @@ $OOBECMD = @'
     RD C:\OSDCloud\OS /S /Q
     RD C:\Drivers /S /Q
     RD C:\Temp /S /Q
-    Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
+    #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
     #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker
     Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
     Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
