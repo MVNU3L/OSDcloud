@@ -145,7 +145,7 @@ $AutopilotOOBEJson = @'
     "Assign":  {
                    "IsPresent":  true
                 },
-    "GroupTag":  "abilis",
+    "GroupTag":  "select a GroupTag in the Dropdown Menu",
     "GroupTagOptions":  [
                             "EP_Hybrid",
                             "EP_Hybrid_Certification"
