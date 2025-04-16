@@ -107,13 +107,7 @@ $OOBEDeployJson = @'
                     "Microsoft.YourPhone",
                     "Microsoft.ZuneMusic",
                     "Microsoft.ZuneVideo"
-                   ],
-    "UpdateDrivers":  {
-                          "IsPresent":  true
-                      },
-    "UpdateWindows":  {
-                          "IsPresent":  true
-                      }
+                   ]	  
 }
 '@
 
