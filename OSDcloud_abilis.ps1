@@ -30,6 +30,9 @@ $Global:MyOSDCloud = [ordered]@{
     ShutdownSetupComplete = [bool]$false
     SyncMSUpCatDriverUSB  = [bool]$false
 }
+
+#write variables to console
+Write-Output $Global:MyOSDCloud
 #endregion
 
 Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
@@ -40,9 +43,6 @@ if ($WindowsPhase -eq 'WinPE') {
         Set-DisRes 1600
     }  
 }
-
-#write variables to console
-Write-Output $Global:MyOSDCloud
 
 Write-Host -ForegroundColor DarkGray "based on start.osdcloud.com $ScriptVersion $WindowsPhase"
 Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
