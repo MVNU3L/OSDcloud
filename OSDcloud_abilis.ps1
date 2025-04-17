@@ -108,6 +108,7 @@ $OOBEDeployJson = @'
                     "Microsoft.Getstarted",
                     "Microsoft.Messaging",
                     "Microsoft.MicrosoftOfficeHub",
+                    "Microsoft.OutlookForWindows",
                     "Microsoft.MicrosoftSolitaireCollection",
                     "Microsoft.MicrosoftStickyNotes",
                     "Microsoft.MSPaint",
