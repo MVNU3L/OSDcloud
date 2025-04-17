@@ -71,7 +71,7 @@ Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
 #Import OSD Module
 Import-Module OSD -Force
 
-Write-Host  -ForegroundColor Yellow "Starting abilis Custom OSDCloud-Menu..."
+Write-Host  -ForegroundColor Yellow "Starting Custom OSDCloud-Menu..."
 Write-Host 
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
 Write-Host "1: Zero-Touch Win11 23H2 | German | Professional"-ForegroundColor Yellow
