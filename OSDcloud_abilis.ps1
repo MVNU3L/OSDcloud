@@ -177,7 +177,7 @@ If (!(Test-Path "C:\ProgramData\OSDeploy")) {
 $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json" -Encoding ascii -force
 
 #================================================
-#  [PostOS] SetupComplete CMD Command Line
+#  [PostOS] SetupComplete CMD Command Line - Für Neue Geräte gedacht
 #================================================
 Write-Host -ForegroundColor Green "Erstelle C:\Windows\Setup\Scripts\SetupComplete.cmd"
 $SetupCompleteCMD = @'
@@ -196,23 +196,23 @@ Start /Wait PowerShell -NoL -C Restart-Computer -force
 $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
 #================================================
-#  [PostOS] OOBEDeploy CMD Command Line - 1.cmd
+#  [PostOS] OOBEDeploy CMD Command Line - 1.cmd - für Bestandsgeräte gedacht
 #================================================
-#Write-Host -ForegroundColor Green "Creating C:\Windows\System32\1.cmd" #open with shift+f10 and type "1" and press ENTER
-#$OOBECMD = @'
- #   PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
- #   Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
- #   RD C:\OSDCloud\OS /S /Q
- #   RD C:\Drivers /S /Q
- #   RD C:\Temp /S /Q
+Write-Host -ForegroundColor Green "Creating C:\Windows\System32\1.cmd" #open with shift+f10 and type "1" and press ENTER
+$OOBECMD = @'
+    PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
+    Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
+    RD C:\OSDCloud\OS /S /Q
+    RD C:\Drivers /S /Q
+    RD C:\Temp /S /Q
     #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows #removes bloatware
     #Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker #suspend Bitlocker
- #   Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
- #   Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
- #   Start /Wait PowerShell -NoL -C Start-OOBEDeploy
- #   Start /Wait PowerShell -NoL -C Restart-Computer -force
-#'@
-#$OOBECMD | Out-File -FilePath 'C:\Windows\System32\1.cmd' -Encoding ascii -force
+    Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
+    Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
+    Start /Wait PowerShell -NoL -C Start-OOBEDeploy
+    Start /Wait PowerShell -NoL -C Restart-Computer -force
+'@
+$OOBECMD | Out-File -FilePath 'C:\Windows\System32\1.cmd' -Encoding ascii -force
 
 #Task sequence complete
 Write-Host -ForegroundColor Green "All done :-)"
