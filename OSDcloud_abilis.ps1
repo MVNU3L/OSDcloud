@@ -181,17 +181,17 @@ $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.Autopi
 #================================================
 Write-Host -ForegroundColor Green "Creating C:\Windows\Setup\Scripts\SetupComplete.cmd"
 $SetupCompleteCMD = @'
-PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -force
-Set Path = %PATH%;C:\Program Files\WindowsPowerShell\Scripts
+PowerShell -NoL -Com Set-ExecutionPolicy RemoteSigned -Force
+set "Path=%Path%;C:\Program Files\WindowsPowerShell\Scripts"
 RD C:\OSDCloud\OS /S /Q
 RD C:\Drivers /S /Q
 RD C:\Temp /S /Q
-#Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
+REM Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows
 Start /Wait PowerShell -NoL -C Install-OSDCloudDriverPack
-Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
+Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -Force
 Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
 Start /Wait PowerShell -NoL -C Start-OOBEDeploy
-Start /Wait PowerShell -NoL -C Restart-Computer -force
+Start /Wait PowerShell -NoL -C Restart-Computer -Force
 '@
 $SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
