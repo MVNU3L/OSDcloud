@@ -223,19 +223,7 @@ Write-Host  "Computer will restart in 10 seconds" -ForegroundColor Cyan
 Start-Sleep -Seconds 10
 
 wpeutil reboot
-
-#Install Drivers
-# Hersteller erkennen
-$Manufacturer = (Get-CimInstance Win32_ComputerSystem).Manufacturer.ToLower()
-
-# Treiber installieren je nach Hersteller
-if ($Manufacturer -like "*dell*" -or $Manufacturer -like "*hp*" -or $Manufacturer -like "*lenovo*") {
-    Write-Host "Hersteller erkannt: $Manufacturer – Installiere Treiberpack..."
-    Install-OSDCloudDriverPack -Verbose
-} else {
-    Write-Host "Hersteller nicht unterstützt: $Manufacturer – Überspringe Treiberinstallation."
-}
-    
+  
 $null = Stop-Transcript
 
 
