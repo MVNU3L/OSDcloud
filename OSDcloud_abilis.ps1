@@ -207,7 +207,7 @@ RD C:\Drivers /S /Q
 RD C:\Temp /S /Q
 REM Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/BloatwareWindows #removes bloatware
 REM Start /Wait PowerShell -NoL -C Invoke-WebPSScript https://tinyurl.com/SuspendBitlocker #suspend Bitlocker
-Start /Wait PowerShell -NoL -C Install-OSDCloudDriverPack
+REM Start /Wait PowerShell -NoL -C Install-OSDCloudDriverPack
 REM Start /Wait PowerShell -NoL -C Install-Module AutopilotOOBE -force
 Start /Wait PowerShell -NoL -C Start-AutopilotOOBE
 Start /Wait PowerShell -NoL -C Start-OOBEDeploy
