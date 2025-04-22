@@ -35,6 +35,18 @@ $Global:MyOSDCloud = [ordered]@{
 Write-Output $Global:MyOSDCloud
 #endregion
 
+#Install Drivers
+# Hersteller erkennen
+$Manufacturer = (Get-CimInstance Win32_ComputerSystem).Manufacturer.ToLower()
+
+# Treiber installieren je nach Hersteller
+if ($Manufacturer -like "*dell*" -or $Manufacturer -like "*hp*" -or $Manufacturer -like "*lenovo*") {
+    Write-Host "Hersteller erkannt: $Manufacturer – Installiere Treiberpack..."
+    Install-OSDCloudDriverPack -Verbose
+} else {
+    Write-Host "Hersteller nicht unterstützt: $Manufacturer – Überspringe Treiberinstallation."
+}
+
 Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
 
 # Detect if running in WinPE
