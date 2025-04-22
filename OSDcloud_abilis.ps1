@@ -29,6 +29,7 @@ $Global:MyOSDCloud = [ordered]@{
     ClearDiskConfirm      = [bool]$False
     ShutdownSetupComplete = [bool]$false
     SyncMSUpCatDriverUSB  = [bool]$false
+    ApplyManufacturerDrivers = [bool]$false
 }
 
 #write variables to console
