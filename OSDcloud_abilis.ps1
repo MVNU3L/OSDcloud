@@ -178,7 +178,7 @@ If (!(Test-Path "C:\ProgramData\OSDeploy")) {
 $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.AutopilotOOBE.json" -Encoding ascii -force
 
 #================================================
-#  [PostOS] SetupComplete CMD Command Line - Für Neue Geräte gedacht
+#  [PostOS] SetupComplete CMD Command Line
 #================================================
 #Write-Host -ForegroundColor Green "Creating C:\Windows\Setup\Scripts\SetupComplete.cmd"
 #$SetupCompleteCMD = @'
@@ -197,7 +197,7 @@ $AutopilotOOBEJson | Out-File -FilePath "C:\ProgramData\OSDeploy\OSDeploy.Autopi
 #$SetupCompleteCMD | Out-File -FilePath 'C:\Windows\Setup\Scripts\SetupComplete.cmd' -Encoding ascii -force
 
 #================================================
-#  [PostOS] OOBEDeploy CMD Command Line - 1.cmd - für Bestandsgeräte gedacht
+#  [PostOS] OOBEDeploy CMD Command Line - 1.cmd
 #================================================
 Write-Host -ForegroundColor Green "Creating C:\Windows\System32\1.cmd" #open with shift+f10 and type "1" and press ENTER
 $OOBECMD = @'
