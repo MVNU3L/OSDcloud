@@ -46,7 +46,6 @@ $Global:OSDModuleResource.StartOSDCloudGUI.updateSCSIDrivers     = $true
 $Global:OSDModuleResource.StartOSDCloudGUI.restartComputer       = $false
 $Global:OSDModuleResource.StartOSDCloudGUI.captureScreenshots    = $false
 
-}
 #endregion
 
 Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
