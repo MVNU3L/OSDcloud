@@ -65,8 +65,6 @@ Write-Host "4: Custom MAG WIM Install"
 Write-Host "=======================================================" -ForegroundColor Yellow
 $input = Read-Host "Please select a number and press Enter"
 
-function Start-OSDCloudGUI {
-
 # Suchen nach der lokalen WIM-Datei
 $possiblePaths = @(
 
@@ -84,11 +82,6 @@ if (-not $WimFile) {
 # Ausgabe zur Kontrolle
 Write-Host "Verwende WIM-Datei: $WimFile" -ForegroundColor Cyan
 
-# Start mit der lokalen WIM-Datei
-Start-OSDCloudOffline -WimFile $WimFile
-
-
-}
 
 switch ($input)
 {
