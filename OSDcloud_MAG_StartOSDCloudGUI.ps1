@@ -72,7 +72,7 @@ switch ($input)
     '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail } 
     '2' { Start-OSDCloud -OSVersion 'Windows 10' -OSBuild 22H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail }
     '3' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 24H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail }
-    '4' { Start-OSDCloudGUI -WimFile "D:\OSDCloud\OS\install.wim" }   
+    '4' { Start-OSDCloudGUI }   
 }
 
 #================================================
