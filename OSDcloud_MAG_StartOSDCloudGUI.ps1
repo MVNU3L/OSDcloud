@@ -65,6 +65,31 @@ Write-Host "4: Custom MAG WIM Install"
 Write-Host "=======================================================" -ForegroundColor Yellow
 $input = Read-Host "Please select a number and press Enter"
 
+function Start-OSDCloudGUI {
+
+# Suchen nach der lokalen WIM-Datei
+$possiblePaths = @(
+
+    "D:\Sources\install.wim",
+    "X:\Sources\install.wim"
+)
+
+$WimFile = $possiblePaths | Where-Object { Test-Path $_ } | Select-Object -First 1
+
+if (-not $WimFile) {
+    Write-Error "Keine gültige WIM-Datei gefunden."
+    exit 1
+}
+
+# Ausgabe zur Kontrolle
+Write-Host "Verwende WIM-Datei: $WimFile" -ForegroundColor Cyan
+
+# Start mit der lokalen WIM-Datei
+Start-OSDCloudOffline -WimFile $WimFile
+
+
+}
+
 switch ($input)
 {
     '1' { Start-OSDCloud -OSVersion 'Windows 11' -OSBuild 23H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail } 
