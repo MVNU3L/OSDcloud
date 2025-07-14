@@ -36,18 +36,17 @@ $Global:MyOSDCloud = [ordered]@{
 }
 
 #Set OSDCloudGUI Vars
-#$Global:OSDModuleResource = [ordered]@{
-    #updateNetworkDrivers    = [bool]$true
-    #updateFirmware          = [bool]$true
-    #BrandColor              = [bool]"#0096D6"
-    #ClearDiskConfirm        = [bool]$false
-    #pdateDiskDrivers       = [bool]$False
-    #BrandName               = [bool]"MAG"
-    #updateSCSIDrivers       = [bool]$True
-    #restartComputer         = [bool]$False
-    #captureScreenshots      = [bool]$false
-    
-#}
+$Global:OSDModuleResource.StartOSDClooudGUI = [ordered]@{
+    updateNetworkDrivers    = [bool]$true
+    updateFirmware          = [bool]$true
+    BrandColor              = [bool]"#0096D6"
+    ClearDiskConfirm        = [bool]$false
+    pdateDiskDrivers       = [bool]$False
+    BrandName               = [bool]"MAG"
+    updateSCSIDrivers       = [bool]$True
+    restartComputer         = [bool]$False
+    captureScreenshots      = [bool]$false 
+}
 
 #endregion
 
