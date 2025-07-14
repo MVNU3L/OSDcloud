@@ -35,18 +35,19 @@ $Global:MyOSDCloud = [ordered]@{
     SyncMSUpCatDriverUSB  = [bool]$false
 }
 
-#Set OSDCloudGUI Vars
-$Global:OSDModuleResource.StartOSDClooudGUI = [ordered]@{
-    updateNetworkDrivers    = [bool]$true
-    updateFirmware          = [bool]$true
-    BrandColor              = [bool]"#0096D6"
-    ClearDiskConfirm        = [bool]$false
-    pdateDiskDrivers       = [bool]$False
-    BrandName               = [bool]"MAG"
-    updateSCSIDrivers       = [bool]$True
-    restartComputer         = [bool]$False
-    captureScreenshots      = [bool]$false 
+# Set OSDCloudGUI Vars
+$Global:OSDModuleResource.StartOSDCloudGUI = [ordered]@{
+    updateNetworkDrivers  = $true
+    updateFirmware        = $true
+    BrandColor            = "#009DD6"
+    ClearDiskConfirm      = $false
+    updateDiskDrivers     = $false
+    BrandName             = "MAG"
+    updateSCSIDrivers     = $true
+    restartComputer       = $false
+    captureScreenshots    = $false
 }
+
 
 #endregion
 
