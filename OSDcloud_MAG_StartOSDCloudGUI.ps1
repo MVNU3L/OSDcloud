@@ -68,8 +68,8 @@ $input = Read-Host "Please select a number and press Enter"
 # Suchen nach der lokalen WIM-Datei
 $possiblePaths = @(
 
-    "D:\OSDCloud\OSDCloud\OS\install.wim",
-    "X:\OSDCloud\OSDCloud\OS\install.wim"
+    "D:\OSDCloud\OS\install.wim",
+    "X:\OSDCloud\OS\install.wim"
 )
 
 $WimFile = $possiblePaths | Where-Object { Test-Path $_ } | Select-Object -First 1
