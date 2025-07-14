@@ -65,22 +65,9 @@ Write-Host "4: Custom MAG WIM Install"
 Write-Host "=======================================================" -ForegroundColor Yellow
 $input = Read-Host "Please select a number and press Enter"
 
-# Suchen nach der lokalen WIM-Datei
-$possiblePaths = @(
+#WimFile
+$WimFile = "D:\OSDCloud\OS\install.wim"
 
-    "D:\OSDCloud\OS\install.wim",
-    "X:\OSDCloud\OS\install.wim"
-)
-
-$WimFile = $possiblePaths | Where-Object { Test-Path $_ } | Select-Object -First 1
-
-if (-not $WimFile) {
-    Write-Error "Keine gültige WIM-Datei gefunden."
-    exit 1
-}
-
-# Ausgabe zur Kontrolle
-Write-Host "Verwende WIM-Datei: $WimFile" -ForegroundColor Cyan
 
 
 switch ($input)
