@@ -35,6 +35,7 @@ $Global:MyOSDCloud = [ordered]@{
     SyncMSUpCatDriverUSB  = [bool]$false
 }
 
+#OSDCloudGUI Vars
 $Global:OSDModuleResource.StartOSDCloudGUI = @{
     updateNetworkDrivers  = $true
     updateFirmware        = $true
