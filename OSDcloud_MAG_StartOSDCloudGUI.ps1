@@ -34,6 +34,19 @@ $Global:MyOSDCloud = [ordered]@{
     ShutdownSetupComplete = [bool]$false
     SyncMSUpCatDriverUSB  = [bool]$false
 }
+
+#Set OSDCloudGUI Vars
+$Global:OSDModuleResource.StartOSDCloudGUI.updateNetworkDrivers  = $true
+$Global:OSDModuleResource.StartOSDCloudGUI.updateFirmware        = $true
+$Global:OSDModuleResource.StartOSDCloudGUI.BrandColor            = "#0096D6"
+$Global:OSDModuleResource.StartOSDCloudGUI.ClearDiskConfirm      = $false
+$Global:OSDModuleResource.StartOSDCloudGUI.updateDiskDrivers     = $true
+$Global:OSDModuleResource.StartOSDCloudGUI.BrandName             = "MAG"
+$Global:OSDModuleResource.StartOSDCloudGUI.updateSCSIDrivers     = $true
+$Global:OSDModuleResource.StartOSDCloudGUI.restartComputer       = $false
+$Global:OSDModuleResource.StartOSDCloudGUI.captureScreenshots    = $false
+
+}
 #endregion
 
 Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
