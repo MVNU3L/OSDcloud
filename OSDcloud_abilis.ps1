@@ -27,7 +27,7 @@ $Global:MyOSDCloud = [ordered]@{
     WindowsDefenderUpdate = [bool]$true
     SetTimeZone           = [bool]$true
     ClearDiskConfirm      = [bool]$False
-    SkipClearDisk         = [bool]$True
+    SkipClearDisk         = [bool]$false
     ShutdownSetupComplete = [bool]$false
     SyncMSUpCatDriverUSB  = [bool]$false
     ApplyManufacturerDrivers = [bool]$false
@@ -210,6 +210,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
