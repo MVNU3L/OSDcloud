@@ -55,7 +55,7 @@ Import-Module OSD -Force
 Write-Host  -ForegroundColor Yellow "Starting Custom OSDCloud-Menu..."
 Write-Host 
 Write-Host "===================== Main Menu =======================" -ForegroundColor Yellow
-Write-Host "1: Zero-Touch Win11 23H2 | German | Professional"-ForegroundColor Yellow
+Write-Host "1: Zero-Touch Win11 23H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "2: Zero-Touch Win10 22H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "3: Zero-Touch Win11 24H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "=======================================================" -ForegroundColor Yellow
@@ -209,6 +209,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
