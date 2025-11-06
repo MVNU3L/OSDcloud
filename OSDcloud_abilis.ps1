@@ -42,6 +42,7 @@ Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
 # Detect if running in WinPE
 if (Test-Path "X:\Windows") {
   Write-Host "Detected WinPE environment." -ForegroundColor Cyan
+  }
 
     # Check if running in a Virtual Machine
     #$ComputerSystem = Get-WmiObject -Class Win32_ComputerSystem
@@ -229,6 +230,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
