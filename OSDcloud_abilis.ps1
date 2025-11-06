@@ -40,21 +40,28 @@ Write-Output $Global:MyOSDCloud
 Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
 
 # Detect if running in WinPE
-if (Test-Path "X:\Windows") {
-    Write-Host "Detected WinPE environment." -ForegroundColor Cyan
+#if (Test-Path "X:\Windows") {
+ #   Write-Host "Detected WinPE environment." -ForegroundColor Cyan
 
     # Check if running in a Virtual Machine
-    $ComputerSystem = Get-WmiObject -Class Win32_ComputerSystem
-    if ($ComputerSystem.Model -match 'Virtual' -or $ComputerSystem.Manufacturer -match 'VMware|Microsoft Corporation') {
-        Write-Host "Setze Bildschirmaufloesung auf 1600x" -ForegroundColor Green
-        
-        try {
-            Set-DisRes 1600
-        } catch {
-            Write-Warning "Set-DisRes function not available or failed."
-        }
-    }
-}
+    #$ComputerSystem = Get-WmiObject -Class Win32_ComputerSystem
+    #if ($ComputerSystem.Model -match 'Virtual' -or $ComputerSystem.Manufacturer -match 'VMware|Microsoft Corporation') {
+     #   Write-Host "Setze Bildschirmaufloesung auf 1600x" -ForegroundColor Green
+      #  
+       # try {
+        #    Set-DisRes 1600
+        #} catch {
+         #   Write-Warning "Set-DisRes function not available or failed."
+        #}
+    #}
+#}
+
+
+#Change Display Resolution for Virtual Machine
+if ((Get-MyComputerModel) -match 'Virtual') {
+    Write-Host -ForegroundColor Cyan "Setting Display Resolution to 1600x"
+    Set-DisRes 1600
+
 
 
 #Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
@@ -229,6 +236,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
