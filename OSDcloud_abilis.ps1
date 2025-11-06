@@ -58,6 +58,7 @@ Write-Host "===================== Main Menu =======================" -Foreground
 Write-Host "1: Zero-Touch Win11 23H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "2: Zero-Touch Win10 22H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "3: Zero-Touch Win11 24H2 | German | Professional" -ForegroundColor Yellow
+Write-Host "4: Zero-Touch Win11 25H2 | German | Professional" -ForegroundColor Yellow
 Write-Host "=======================================================" -ForegroundColor Yellow
 $input = Read-Host "Please select a number and press Enter"
 
@@ -209,6 +210,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
