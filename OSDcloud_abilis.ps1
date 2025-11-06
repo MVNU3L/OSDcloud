@@ -33,39 +33,17 @@ $Global:MyOSDCloud = [ordered]@{
     ApplyManufacturerDrivers = [bool]$false
 }
 
-#write variables to console
-Write-Output $Global:MyOSDCloud
-#endregion
-
-Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
-
-# Detect if running in WinPE
-if (Test-Path "X:\Windows") {
-  Write-Host "Detected WinPE environment." -ForegroundColor Cyan
-  }
-
-    # Check if running in a Virtual Machine
-    #$ComputerSystem = Get-WmiObject -Class Win32_ComputerSystem
-    #if ($ComputerSystem.Model -match 'Virtual' -or $ComputerSystem.Manufacturer -match 'VMware|Microsoft Corporation') {
-     #   Write-Host "Setze Bildschirmaufloesung auf 1600x" -ForegroundColor Green
-      #  
-       # try {
-        #    Set-DisRes 1600
-        #} catch {
-         #   Write-Warning "Set-DisRes function not available or failed."
-        #}
-    #}
-#}
-
-
 Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
 if ($WindowsPhase -eq 'WinPE') {
-    Initialize WinPE Phase
+    #Initialize WinPE Phase
     if ((Get-MyComputerModel) -match 'Virtual') {
         Write-Host  -ForegroundColor Green "Setze Bildschirmaufloesung auf 1600x"
         Set-DisRes 1600
     }  
 }
+
+#write variables to console
+Write-Output $Global:MyOSDCloud
 
 Write-Host -ForegroundColor DarkGray "based on start.osdcloud.com $ScriptVersion $WindowsPhase"
 Invoke-Expression -Command (Invoke-RestMethod -Uri functions.osdcloud.com)
@@ -230,6 +208,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
