@@ -61,6 +61,7 @@ Write-Host "Loading OSDCloud..." -ForegroundColor Yellow
 if ((Get-MyComputerModel) -match 'Virtual') {
     Write-Host -ForegroundColor Cyan "Setting Display Resolution to 1600x"
     Set-DisRes 1600
+    }
 
 
 
@@ -236,6 +237,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
