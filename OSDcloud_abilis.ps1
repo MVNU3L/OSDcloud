@@ -22,7 +22,7 @@ $Global:MyOSDCloud = [ordered]@{
     Restart               = [bool]$False
     RecoveryPartition     = [bool]$true
     OEMActivation         = [bool]$True
-    WindowsUpdate         = [bool]$true
+    WindowsUpdate         = [bool]$False
     WindowsUpdateDrivers  = [bool]$false
     WindowsDefenderUpdate = [bool]$true
     SetTimeZone           = [bool]$true
@@ -210,6 +210,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
