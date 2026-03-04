@@ -77,10 +77,11 @@ Write-Host -ForegroundColor Green "Creating C:\ProgramData\OSDeploy\OSDeploy.OOB
 $OOBEDeployJson = @'
 {
     "AddNetFX3":  {
-                      "IsPresent":  true
+                      "IsPresent": false
                   },
     "Autopilot":  {
-                      "IsPresent":  false
+                      "IsPresent": true,
+                      "GroupTag": "EP_Hybrid"
                   },
     "RemoveAppx":  [
                     "MicrosoftTeams",
@@ -113,10 +114,10 @@ $OOBEDeployJson = @'
                     "Microsoft.ZuneVideo"
                    ],
     "UpdateDrivers":  {
-                          "IsPresent":  true
+                          "IsPresent": false
                       },
     "UpdateWindows":  {
-                          "IsPresent":  true
+                          "IsPresent": false
                       }
 }
 '@
@@ -210,6 +211,7 @@ $null = Stop-Transcript
 
 
 #endregion
+
 
 
 
